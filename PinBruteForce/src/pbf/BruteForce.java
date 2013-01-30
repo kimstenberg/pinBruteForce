@@ -1,11 +1,10 @@
 package pbf;
 
 import java.util.ArrayList;
-import java.util.Collections;
 
 public class BruteForce {
 
-	private int pin;
+
 	private String megaString;
 	private String[] list;
 	private ArrayList<Character> newPin = new ArrayList<Character>();
@@ -32,21 +31,21 @@ public class BruteForce {
 			
 				for(int i = 0; i < list.length;i++) {
 					
-					if(counter == 1000000) {
+					if(counter == 1000000-i) {
 						newPin.clear();
 						break;
 					}
-					
-					if(list[i].charAt(0) == megaString.charAt(counter)) {
-						newPin.add(megaString.charAt(counter));
-						counter++;	
+					if(list[i].charAt(0) == megaString.charAt(counter+i)) {
+						newPin.add(megaString.charAt(counter+i));
+				
 					} else {
-						counter++;
+						
 						newPin.clear();
 						break;
 					}
 				}
 			
+				counter++;
 				if(counter == 1000000)
 					break;
 			}
