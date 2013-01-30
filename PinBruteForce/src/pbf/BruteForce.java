@@ -26,23 +26,16 @@ public class BruteForce {
 	private void pinBruteForce() {
 		
 		int counter = 0;
+		int n = 0;
 		
 			while(list.length != newPin.size()) {
 			
-				for(int i = 0; i < list.length;i++) {
-					
-					if(counter == 1000000-i) {
-						newPin.clear();
-						break;
-					}
-					if(list[i].charAt(0) == megaString.charAt(counter+i)) {
-						newPin.add(megaString.charAt(counter+i));
-				
-					} else {
-						
-						newPin.clear();
-						break;
-					}
+				if(list[n].charAt(0) == megaString.charAt(counter)) {
+					newPin.add(megaString.charAt(counter));
+					n++;
+				} else {
+					newPin.clear();
+					n = 0;
 				}
 			
 				counter++;
